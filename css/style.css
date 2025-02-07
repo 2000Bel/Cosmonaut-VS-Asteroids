@@ -2,7 +2,10 @@ body {
 
     margin: 0;
     padding: 0;
-    background-color: #000;
+    background-image: url('galaxy.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     font-family: Arial, sans-serif;
     color: white;
   }
@@ -20,11 +23,13 @@ body {
     position: absolute;
     bottom: 20px;
     left: 50%;
-    width: 50px;
-    height: 50px;
-    background-color: rgb(255, 0, 81);
-    border-radius: 50%;
-    transition: left 0.1s ease;
+    width: 90px;
+    height: 120px;
+    background-image: url('cosmonaut2.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: lefr 0.1s ease;
   }
 
   #score {
@@ -33,8 +38,6 @@ body {
     left: 20px;
     font-size: 24px;
   }
-  
-  
   
   #reset-button {
   
@@ -48,29 +51,33 @@ body {
     color: white;
     border: none;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius:  10px;
   }
-  
-  
   
   #reset-button:hover {
   
-    background-color: #47ffaf;
+    background-color: #ff8747;
   }
   
   .asteroid {
-    background-color: #5a5a5a;
+    background-image: url('rock.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     position: absolute;
-    width: 30px;
-    height: 30px;
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
   }
   
   .power {
   
-    background-color: #32cd32;
+    background-image: url('power.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     position: absolute;
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
     border-radius: 50%;
   }

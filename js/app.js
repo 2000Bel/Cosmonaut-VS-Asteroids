@@ -18,7 +18,7 @@ document.addEventListener('keydown', (event) => {
     cosmonaut.style.left = cosmonautPosition + '%';
 });
 
-// Make asteroids
+// create asteroids
 
 function createAsteroid() {
     const asteroid = document.createElement('div');
@@ -34,16 +34,16 @@ function createAsteroid() {
         asteroidPosition += 5;
         asteroid.style.top = asteroidPosition + 'px';
 
-        // Colition
+        // Collision
 
         if (checkCollision(asteroid)) {
             playerScore -= getRandomPoints();
-            scoreDisplay.textContent = 'Puntos: ' + playerScore;
+            scoreDisplay.textContent = 'Points: ' + playerScore;
             clearInterval(fallInterval);
             asteroid.remove();
         }
 
-        // Eliminar asteroide si llega al fondo
+        // clear asteroid
 
         if (asteroidPosition > window.innerHeight) {
             clearInterval(fallInterval);
@@ -69,16 +69,16 @@ function createPower() {
         powerPosition += 5;
         power.style.top = powerPosition + 'px';
 
-        // Colition
+        // Collision
 
         if (checkCollision(power)) {
             playerScore += getPowerPoints();
-            scoreDisplay.textContent = 'Puntos: ' + playerScore;
+            scoreDisplay.textContent = 'Points: ' + playerScore;
             clearInterval(fallInterval);
             power.remove();
         }
 
-        // clean power
+        // clear power
 
         if (powerPosition > window.innerHeight) {
             clearInterval(fallInterval);
@@ -88,7 +88,7 @@ function createPower() {
     }, 50);
 }
 
-// colition with cosmonaut
+// collision with cosmonaut
 
 function checkCollision(object) {
     const cosmonautRect = cosmonaut.getBoundingClientRect();
@@ -103,14 +103,14 @@ function checkCollision(object) {
 // random points for asteroid
 
 function getRandomPoints() {
-    const points = [1, 5, 10];
+    const points = [5, 10, 20];
     return points[Math.floor(Math.random() * points.length)];
 }
 
 // random points for powers
 
 function getPowerPoints() {
-    const points = [2, 10, 20];
+    const points = [5, 10, 20];
     return points[Math.floor(Math.random() * points.length)];
 }
 
@@ -118,25 +118,25 @@ function getPowerPoints() {
 
 function startGame() {
     playerScore = 100;
-    scoreDisplay.textContent = 'Puntos: ' + playerScore;
+    scoreDisplay.textContent = 'Points: ' + playerScore;
 
     gameInterval = setInterval(() => {
         if (playerScore <= 0) {
             clearInterval(gameInterval);
             clearInterval(asteroidInterval);
             clearInterval(powerInterval);
-            alert('¡Game Over! Has perdido.');
+            alert('¡Game Over! you lose');
 
         } else if (playerScore >= 1000) {
             clearInterval(gameInterval);
             clearInterval(asteroidInterval);
             clearInterval(powerInterval);
-            alert('¡Felicidades! Has ganado el juego.');
+            alert('Congratulations! You win');
         }
     }, 100);
 
-    asteroidInterval = setInterval(createAsteroid, 2000);
-    powerInterval = setInterval(createPower, 4000);
+    asteroidInterval = setInterval(createAsteroid, 1000);
+    powerInterval = setInterval(createPower, 3000);
 }
 
 // Restartbutton
