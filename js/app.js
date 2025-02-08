@@ -2,6 +2,10 @@
 const cosmonaut = document.getElementById ('cosmonaut');
 const scoreDisplay = document.getElementById('score');
 const resetButton = document.getElementById('reset-button');
+const messageDisplay = document.getElementById('message');
+const showInstructionsBtn = document.getElementById('show-instructions'); 
+const instructionsContainer = document.getElementById('instructions-container'); 
+const closeInstructionsBtn = document.getElementById('close-instructions');
 
 let playerScore = 100;
 let gameInterval;
@@ -16,6 +20,25 @@ document.addEventListener('keydown', (event) => {
         cosmonautPosition += 5;
     }
     cosmonaut.style.left = cosmonautPosition + '%';
+});
+
+//show message
+
+function showMessage(text) {
+    messageDisplay.textContent = text;
+    messageDisplay.style.display = 'block';
+}
+
+//show instructions
+
+showInstructionsBtn.addEventListener('click', () => { 
+    instructionsContainer.style.display = 'flex'; 
+}); 
+
+//close instructions
+
+closeInstructionsBtn.addEventListener('click', () => { 
+    instructionsContainer.style.display = 'none'; 
 });
 
 // create asteroids
@@ -125,13 +148,13 @@ function startGame() {
             clearInterval(gameInterval);
             clearInterval(asteroidInterval);
             clearInterval(powerInterval);
-            alert('¡Game Over! you lose');
+            showMessage ('Game Over! you lose!');
 
         } else if (playerScore >= 1000) {
             clearInterval(gameInterval);
             clearInterval(asteroidInterval);
             clearInterval(powerInterval);
-            alert('Congratulations! You win');
+            showMessage ('Congratulations! You win!');
         }
     }, 100);
 
@@ -145,6 +168,7 @@ resetButton.addEventListener('click', () => {
     clearInterval(gameInterval);
     clearInterval(asteroidInterval);
     clearInterval(powerInterval);
+    messageDisplay.style.display = 'none';
     startGame();
 });
 
