@@ -22,13 +22,6 @@ document.addEventListener('keydown', (event) => {
     cosmonaut.style.left = cosmonautPosition + '%';
 });
 
-//show message
-
-function showMessage(text) {
-    messageDisplay.textContent = text;
-    messageDisplay.style.display = 'block';
-}
-
 //show instructions
 
 showInstructionsBtn.addEventListener('click', () => { 
@@ -168,9 +161,16 @@ resetButton.addEventListener('click', () => {
     clearInterval(gameInterval);
     clearInterval(asteroidInterval);
     clearInterval(powerInterval);
-    messageDisplay.style.display = 'none';
     startGame();
+    messageDisplay.style.display = 'none';
 });
+
+//show message
+
+function showMessage(text) {
+    messageDisplay.textContent = text;
+    messageDisplay.style.display = 'block';
+}
 
 // Start Game
 
